@@ -1,6 +1,12 @@
 import os.path
 import os
 
+# must remove __pycache__ files
+# find . | grep -E "(/__pycache__$|\.pyc$|\.pyo$)" | xargs rm -rf
+
+# run converter
+# /home/shoumitro/Documents/FR/social_backend/venv/bin/python converter.py
+
 exclude_file_dir = set([
     'venv',
     '.gitignore',
@@ -14,7 +20,7 @@ exclude_file_dir = set([
     '.git'
 ])
 
-PYTHON_BIN = os.environ.get('PYTHON_BIN', '/usr/bin/')
+PYTHON_BIN = os.environ.get('PYTHON_BIN', '/home/shoumitro/Documents/FR/social_backend/venv/bin/')
 # os.environ.setdefault("PYTHON_BIN", "/usr/bin/")
 # PYTHON_BIN = '/home/shoumitro/Documents/FR/test/movie-database-assessment/venv/bin/'
 
