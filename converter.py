@@ -7,6 +7,10 @@ import os
 # run converter
 # /home/shoumitro/Documents/FR/social_backend/venv/bin/python converter.py
 
+# for uncompile
+# pip install uncompyle6
+# uncompyle6 manage.pyc > manage.py
+
 exclude_file_dir = set([
     'venv',
     '.gitignore',
