@@ -7,26 +7,30 @@ import os
 # run converter
 # /home/shoumitro/Documents/FR/social_backend/venv/bin/python converter.py
 
-# for uncompile
+# for uncompile. it's only works for python version <= 3.8. 
 # pip install uncompyle6
 # uncompyle6 manage.pyc > manage.py
+# As of this writing, no existing version of uncompyle6 works for Python 3.9 or 3.10 or later(and your bytecode is built for 3.10 or later).
+
 
 exclude_file_dir = set([
     'venv',
     '.gitignore',
     'db.sqlite3',
     'doc.txt',
-    'converter.py',
+    'pyc_converter.py',
     'README.md',
     'LICENSE',
     'py_code',
     '.idea',
-    '.git'
+    '.git',
+    'static',
+    'media',
 ])
 
-PYTHON_BIN = os.environ.get('PYTHON_BIN', '/home/shoumitro/Documents/FR/social_backend/venv/bin/')
+PYTHON_BIN = os.environ.get('PYTHON_BIN', '/bin/')
+# PYTHON_BIN = os.environ.get('PYTHON_BIN', '/home/shoumitro/Documents/FR/test/pyc_converter/venv/bin/')
 # os.environ.setdefault("PYTHON_BIN", "/usr/bin/")
-# PYTHON_BIN = '/home/shoumitro/Documents/FR/test/movie-database-assessment/venv/bin/'
 
 
 def pyc_converter(dir_list, working_dir):
