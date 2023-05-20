@@ -42,4 +42,27 @@ To obtain the actual result, you can call result.eval(), which triggers the exec
 
 
 
+# compatibility.py
+from __future__ import absolute_import, unicode_literals
+
+import sys
+
+from django.utils import six
+from django.utils.functional import keep_lazy
+from django.utils.text import Truncator, format_lazy
+
+
+def string_concat(*strings):
+    return format_lazy('{}' * len(strings), *strings)
+
+
+def truncate_words(s, num, end_text='...'):
+    truncate = end_text and ' %s' % end_text or ''
+    return Truncator(s).words(num, truncate=truncate)
+
+
+truncate_words = keep_lazy(truncate_words, six.text_type)
+
+
+
 
